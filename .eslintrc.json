@@ -1,0 +1,42 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "react-hooks"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/errors",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "@typescript-eslint/array-type": "error",
+    "@typescript-eslint/prefer-for-of": "off",
+    "@typescript-eslint/prefer-non-null-assertion": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/no-typos": "error",
+    "react/no-direct-mutation-state": "error",
+    "react/no-deprecated": "error",
+    "react/jsx-no-duplicate-props": "error",
+    "prettier/prettier": "error"
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "env": {
+    "jest": true,
+    "browser": true,
+    "es6": true
+  }
+}

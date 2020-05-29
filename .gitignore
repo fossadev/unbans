@@ -1,0 +1,10 @@
+vendor/
+node_modules/
+.env
+.DS_Store
+
+# Please use yarn :)
+package-lock.json
+npm-debug.log
+yarn-error.log
+yarn-debug.log

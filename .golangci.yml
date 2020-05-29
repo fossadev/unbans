@@ -1,0 +1,55 @@
+linters-settings:
+    govet:
+      check-shadowing: false
+    golint:
+      min-confidence: 0
+    maligned:
+      suggest-new: true
+    goconst:
+      min-len: 2
+      min-occurrences: 2
+    misspell:
+      locale: US
+    lll:
+      line-length: 140
+    gocritic:
+      enabled-tags:
+        - diagnostic
+        - experimental
+        - opinionated
+        - performance
+        - style
+    funlen:
+      lines: 500
+      statements: 50
+  linters:
+    disable-all: true
+    enable:
+      - bodyclose
+      - deadcode
+      - depguard
+      - errcheck
+      - goconst
+      - gocritic
+      - gofmt
+      - goimports
+      - golint
+      - gosec
+      - gosimple
+      - govet
+      - ineffassign
+      - interfacer
+      - lll
+      - misspell
+      - scopelint
+      - staticcheck
+      - structcheck
+      - stylecheck
+      - typecheck
+      - unconvert
+      - unparam
+      - unused
+      - varcheck
+      - maligned
+      - prealloc
+  
