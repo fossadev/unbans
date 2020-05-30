@@ -17,7 +17,7 @@ type ResponseWriter interface {
 	Conflict(string)
 	TooManyRequests(string)
 	InternalServerError(string)
-
+	SetCookie(cookie *http.Cookie)
 	Write([]byte) (int, error)
 }
 
@@ -84,11 +84,20 @@ func (w *responseWriter) writeError(status int, message string) {
 }
 
 func (w *responseWriter) Success(data interface{}) {
-	w.writeJSON(http.StatusOK, data)
+	w.writeJSON(http.StatusOK, &successResponse{
+		Success:    true,
+		Status:     http.StatusOK,
+		StatusText: http.StatusText(http.StatusOK),
+		Response:   data,
+	})
 }
 
-func (w *responseWriter) Redirect(loc string) {
-	w.Header().Set(locationHeader, loc)
+func (w *responseWriter) SetCookie(cookie *http.Cookie) {
+	http.SetCookie(w.ResponseWriter, cookie)
+}
+
+func (w *responseWriter) Redirect(to string) {
+	w.Header().Set(locationHeader, to)
 	w.WriteHeader(http.StatusFound)
 }
 

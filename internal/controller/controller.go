@@ -4,33 +4,41 @@ import (
 	"net/http"
 
 	"github.com/fossadev/unbans/internal/cache"
+	"github.com/fossadev/unbans/internal/config"
 	"github.com/fossadev/unbans/internal/db"
 	"github.com/fossadev/unbans/internal/features"
 	"github.com/fossadev/unbans/internal/logger"
+	"github.com/fossadev/unbans/internal/twitchapi"
 )
 
 type Controller struct {
 	routes []*Route
 
-	Cache    cache.Cache
-	DB       *db.DB
-	Features *features.Features
-	Log      logger.Logger
+	Cache     cache.Cache
+	Config    *config.Config
+	DB        *db.DB
+	Features  *features.Features
+	Log       logger.Logger
+	TwitchAPI twitchapi.TwitchAPI
 }
 
 type Config struct {
-	Cache    cache.Cache
-	DB       *db.DB
-	Features *features.Features
-	Log      logger.Logger
+	Cache     cache.Cache
+	Config    *config.Config
+	DB        *db.DB
+	Features  *features.Features
+	Log       logger.Logger
+	TwitchAPI twitchapi.TwitchAPI
 }
 
 func New(conf *Config) *Controller {
 	return &Controller{
-		Cache:    conf.Cache,
-		DB:       conf.DB,
-		Features: conf.Features,
-		Log:      conf.Log,
+		Cache:     conf.Cache,
+		Config:    conf.Config,
+		DB:        conf.DB,
+		Features:  conf.Features,
+		Log:       conf.Log,
+		TwitchAPI: conf.TwitchAPI,
 	}
 }
 

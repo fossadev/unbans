@@ -5,7 +5,7 @@ if [ ! -d scripts ]; then
 	exit 1
 fi
 
-if ! [ -f ../.env ]; then
+if ! [ -f .env ]; then
 	echo "[WARN] no .env file found. Executing without .env file"
 	$"$@"
 	exit

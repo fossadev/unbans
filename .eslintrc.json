@@ -6,6 +6,7 @@
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:import/errors",
+    "plugin:import/typescript",
     "plugin:prettier/recommended"
   ],
   "rules": {
@@ -32,6 +33,11 @@
   "settings": {
     "react": {
       "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": ["node_modules", "src/"]
+      }
     }
   },
   "env": {
